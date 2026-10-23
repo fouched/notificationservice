@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /home/fouche/dev/projects/spring/fintech/userservice; cat src/main/resources/application.properties; grep -rln -i \"kafka\" src/main/java)",
+      "Bash(cd /home/fouche/dev/projects/spring/fintech/userservice/src/main/java/com/example/userservice; cat kafka/dto/UserRegistrationEvent.java kafka/service/AccountEventPublisher.java; grep -n -i \"kafka\\\\|publish\" service/impl/AuthServiceImpl.java; ls /home/fouche/dev/projects/spring/fintech; ls -R /home/fouche/dev/projects/spring/fintech/notificationservice/src/main/java)",
+      "Bash(unzip -l ~/.m2/repository/org/springframework/kafka/spring-kafka/4.1.1/spring-kafka-4.1.1.jar)",
+      "Bash(grep -E \"serializer/[^/]*Jackson[^/$]*\\\\.class\")",
+      "Read(//home/fouche/.m2/repository/**)",
+      "Bash(xargs -I{} sh -c 'unzip -l {} 2>/dev/null | grep -qE \"/JacksonSerializer\\\\.class|/JacksonDeserializer\\\\.class\" && echo {}')"
+    ]
+  }
+}
