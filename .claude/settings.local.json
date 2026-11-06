@@ -6,7 +6,19 @@
       "Bash(unzip -l ~/.m2/repository/org/springframework/kafka/spring-kafka/4.1.1/spring-kafka-4.1.1.jar)",
       "Bash(grep -E \"serializer/[^/]*Jackson[^/$]*\\\\.class\")",
       "Read(//home/fouche/.m2/repository/**)",
-      "Bash(xargs -I{} sh -c 'unzip -l {} 2>/dev/null | grep -qE \"/JacksonSerializer\\\\.class|/JacksonDeserializer\\\\.class\" && echo {}')"
+      "Bash(xargs -I{} sh -c 'unzip -l {} 2>/dev/null | grep -qE \"/JacksonSerializer\\\\.class|/JacksonDeserializer\\\\.class\" && echo {}')",
+      "Bash(xargs cat)",
+      "Bash(awk '{print $2, $NF}')",
+      "Bash(podman ps *)",
+      "Bash(ps -o lstart= -p 297060)",
+      "Read(//proc/297060/**)",
+      "Bash(podman exec *)",
+      "Bash(javap -v -p com/example/notificationservice/kafka/listener/UserEventListener.class)",
+      "Bash(javap -p com/example/notificationservice/kafka/listener/*.class)",
+      "Bash(ss -tnp 2>/dev/null | grep \"pid=297060\" ; echo ----; ls /proc/297060/fd -l 2>/dev/null | grep -c socket; tr '\\\\0' ' ' < /proc/297060/cmdline | tr ' ' '\\\\n' | grep -E '^-D|spring|profiles' | head)",
+      "Bash(podman inspect *)",
+      "Bash(podman logs *)",
+      "Bash(cd /home/fouche/dev/projects/go/novabank; ls; grep -ln \"kafka-dev\" *.y*ml 2>/dev/null)"
     ]
   }
 }
